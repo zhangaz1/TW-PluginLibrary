@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="application-name" content="TiddlyWiki Plugin Library" />
+<meta name="application-version" content="v0.0.0" />
+<meta name="copyright" content="Copyright 2015 Jeremy Ruston" />
+<link id="faviconLink" rel="shortcut icon" href="favicon.ico">
+<title>Plugin Library</title>
+<script>
+var assetList = [
+    {
+        "title": "$:/plugins/kookma/commander",
+        "description": "Tiddler Commander",
+        "author": "Mohammad Rahmani",
+        "version": "2.0.8",
+        "core-version": ">=5.1.18",
+        "source": "https://github.com/kookma/Shiraz",
+        "list": "readme history license authors",
+        "dependents": "",
+        "plugin-type": "plugin",
+        "type": "application/json",
+        "readme": "Tiddler Commander, in short ''Commander'' is a unique tool for batch operations on tiddlers. \n\nFor help and instruction on usage, open [[Commander|$:/plugins/kookma/commander/help/ui]] help tab.\n\nFor detailed docummention go to [[Demo page|https://kookma.github.io/TW-Commander/]]\n\n\n!! References\n; Project code and demo\n* [[GitHub demo page|https://github.io/kookma/TW-Commander]] \n* [[Tiddlyspot demo page|http://commander.tiddlyspot.com/]] (only for beta and trails)\n* [[GitHub code page|https://github.com/kookma/TW-Commander]]\n\n;Tiddler Commander at Tiddlywiki Google forum\n* [[Initial announcement|https://groups.google.com/d/msg/tiddlywiki/BxJsWuae-Uc/JapAx4mtBgAJ]]\n* [[Beta releases|https://groups.google.com/d/msg/tiddlywiki/w9Bv-WulKw8/CYf9D4H6BgAJ]]\n* [[Release candidate|https://groups.google.com/d/msg/tiddlywiki/Zw3F3iRtggA/qX2uWiBJBgAJ]]",
+        "requires-reload": "yes"
+    },
+    {
+        "title": "$:/plugins/kookma/favorites",
+        "description": "favorites",
+        "author": "Mohammad Rahmani",
+        "version": "4.1.0",
+        "core-version": ">=5.1.21",
+        "source": "https://github.com/kookma/TW-Favorites",
+        "list": "readme history license",
+        "dependents": "",
+        "plugin-type": "plugin",
+        "type": "application/json",
+        "readme": "<style> .dsvg svg{width: 1.2em;height: 1.2em;vertical-align: middle;}</style>\n\n!! How to use\nThe Favorites plugin adds the <span class=dsvg>{{$:/plugins/kookma/favorites/image}}</span> button to the tiddler view Toolbar and also the `Favorites` tab to the sidebar.\n\nThe button becomes `red` when selected and then the tiddler appears in the list on the `Favorites` tab.  The list can be sorted using drag and drop of items.\n\nA tiddler can be removed from the `Favorites` tab by either\n\n* opening it and clicking again on the <span class=dsvg>{{$:/plugins/kookma/favorites/image}}</span> button. or\n* click on remove button in `Favorites` list on the sidebar\n\nThe ''Favorites plugin'' contains three modes\n\n* ''flat mode'': one favorite list, no folder\n* ''structured mode'': use folder, search tool, export and delete tool\n* ''frozen list'': read only, simple table of content style\n\nFavorites plugin also supports folder operation, export and bulk operations.\n\n!! Tutorial\n* For detailed description and demo see: [[https://kookma.github.io/TW-Favorites/]]\n* For latest update and code see: [[https://github.com/kookma/TW-Favorites]]\n",
+        "requires-reload": "no"
+    },
+    {
+        "title": "$:/plugins/kookma/pinboard",
+        "description": "Pinboard",
+        "author": "Mohammad Rahmani",
+        "version": "0.9",
+        "core-version": ">=5.1.21",
+        "source": "https://github.com/kookma/TW-Pinboard",
+        "list": "readme history license",
+        "dependents": "",
+        "plugin-type": "plugin",
+        "type": "application/json",
+        "readme": "This is a plugin to create a [[pinboard|https://en.wikipedia.org/wiki/Bulletin_board]]\n\n* a pinboard contains some notices pinned on a board\n* a notice is a tiddler tagged with `pin`\n* a notice is removed from board if it is tagged with `done`\n* a notice has a priority. The priority of a notice tiddler is set through adding a field entitled `priority`\n* The priority filed value can only be chosen from the below value\n** red\n** blue\n** green\n** yellow\n* The priority actually set the color of pin and the background color of note\n* If the priority field is missed the white color is used!\n\n!! How to create a pinboard\nA macro entitled `pinboard-ui` creates a pinboard. It lists and displays all notices in a multi column layout.\n\nThe syntax is as below\n\n```\n<<pinboard-ui>>\n```\n\n* a notice shown by `pinboard-ui` on hover\n**  has a link to the notice tiddler, on click it will be opened and get focused\n**  has a folding editor, on click the entry can be edited\n* a notice shown by `pinboard-ui` has a toggle button (the colored pin) to tag the notice as `done`\n\n;Note\n:When a notice tagged as done it will be removed from the pinboard\n\n!! How to create a new notice\nThere are two routes to do this\n\n# In the pinboard you see a gray icon floating right, on click it will create a new notice with yellow priority\n# You can also create a notice from a new tiddler or from existing ones as below\n#* create new tiddler, if you want to use exsiting one, edit it\n#* tag it with `pin`\n#* add a custom field called `priority` and set a value like red, yellow, blue, or green\n#* save the tiddler, that's all.\n\n!! Use online Google font\nIt is possible to use the script font Satisfy from Google as defualt font for notices. To set Google font open the setting tab from Plugins page, Pinboard tab or directly from [[$:/plugins/kookma/pinboard]] as below\n\n{{$:/plugins/kookma/pinboard/settings}}\n\n!! Cork board\nTo add a corkboard as a background to your pinboard, so as follow\n\n* Create a new tiddler\n* Fill in the text with `<<pinboard-ui>>` \n* add a custom field entitled `class`\n* fill in the value with `corkboard`\n",
+        "requires-reload": "no"
+    },
+    {
+        "title": "$:/plugins/kookma/searchwikis",
+        "description": "Searchwikis",
+        "author": "Mohammad Rahmani",
+        "version": "1.2.0",
+        "core-version": ">=5.1.21",
+        "source": "https://github.com/kookma/TW-Searchwikis",
+        "list": "readme history license",
+        "dependents": "",
+        "plugin-type": "plugin",
+        "type": "application/json",
+        "readme": "!! What is Searchwikis plugin?\n<<<\nSearchwikis plugin uses index (dataTiddler) to search multiple external Tiddlywikis. It has two parts\n\n# An indexer, to build an index of all tiddlers in an external wiki\n# A search tool to search indexes and display a link to a tiddler found in an external wiki\n\nThen one master wiki can hosts many index tiddlers and lets to search several external wikis through index tiddlers.\n<<<\n\n\n!! How to use\n<<<\n* install $:/plugins/kookma/searchwikis into the host wiki\n* drag and drop [[index and export|Index and Export]] tiddler to the external wiki\n* use the ui and create the index tiddler of external wiki\n* export it to the host wiki, or drag and drop to the host wiki\n* open [[$:/AdvancedSearch]] in the host wiki\n* goto `External wiki` tab and make search\n* results will be shown as links and one can click a link and open the external wiki with that result under focus\n<<<\n\n!! Install\n<<<\n;Packaged plugin\n#Drag and drop $:/plugins/kookma/searchwikis into your wiki\n#Save and reload your wiki\n\n;Client-Server installation (separate files)\n*For Node.js (server version) download the searchwikis folder from [[source|https://github.com/kookma/TW-Searchwikis]] folder and paste in your Tiddlywiki plugins folder\n*For local installation put the searchwikis folder into your local plugins folder under your wiki folder\n\n;Code and demo\n* Demo: https://kookma.github.io/TW-Searchwikis/\n* Code: https://github.com/kookma/TW-Searchwikis\n\nFor complete tutorial, examples and use cases, see the demo page.\n\n//It is highly recommended to backup your data before trying any new plugin! Do it before installing Searchwikis//\n<<<\n\n!! Security note\n<<<\n* Most browsers do not allow to open a local wiki (a wiki file on disk) from a webpage! This is a security reason\n* Wikis are opened on Node.js even from local disk, are using http, or https and act as webpage\n<<<",
+        "requires-reload": "no"
+    },
+    {
+        "title": "$:/plugins/kookma/shiraz",
+        "description": "Shiraz",
+        "author": "Mohammad Rahmani",
+        "version": "2.0.16",
+        "core-version": ">=5.1.21",
+        "source": "https://github.com/kookma/TW-shiraz",
+        "list": "readme history license",
+        "dependents": "",
+        "plugin-type": "plugin",
+        "type": "application/json",
+        "readme": "Shiraz is a small framework inclusing stylesheets and macros to create stylish contents in Tiddlywiki. It has modified CSS classes from Bootstrap 4.1.3. Shiraz has customized elements like alerts, cards, panels, images, tables, badges, texts, ...\n\nFor tutorial and download see\n\nhttps://kookma.github.io/Shiraz/\n",
+        "requires-reload": "no"
+    },
+    {
+        "title": "$:/plugins/kookma/slider",
+        "description": "Slider",
+        "author": "Mohammad Rahmani",
+        "version": "1.1.1",
+        "core-version": ">=5.1.21",
+        "source": "https://github.com/kookma/TW-Slider",
+        "list": "readme history license",
+        "dependents": "",
+        "plugin-type": "plugin",
+        "type": "application/json",
+        "readme": "!! What ia slider plugin?\nSlider is a small plugin to create an ordered set of tiddlers also called ''Trail''.\n\nA trail can be used to create a sequence of selected contents like step by step tutorial, guided help, lessons and similar.\n\nThe slider plugin user interface contains three sections\n\n# A sidebar tab called ''Trails'' to manage trails\n# A ''dashboard'' for each trail (where trail structure is managed)\n# Tiddlers in a trail, also called ''slides''\n\n!! How to create a trail\nFrom the sibebar tab ''Trails'' click on the ''Create new trail'' button. In the newly opened tiddler:\n\n# Enter a short name for //title//\n#* This title is used as a parent //tag// for all slides in the trail\n# Enter a meaningful caption to describe the subject of trail\n#* Caption is displayed in ''Trails'' sidebar tab, so it used to find and recognize the trail\n# Save the tiddler\n#* After saving the dashboard will be appeared\n#* Using dashboard, manage the trail\n\n!! Add slides to trail\nSlides (tiddlers) can be added to a specified trail in several ways including:\n\n# By clicking on the `New slide` button on the trail dashboard\n# By dragging and droping a tiddler into the `List of slides` on the trail dashboard\n# By opening the `sidebar / Trails` tab and then clicking on the `Add slide to ...` button\n# By creating new tiddler and tagging with the specified trail title\n# By tagging an exisiting tiddler with the specified trail title\n\n!! Create slide footer \n* The slider footer can be used to add a text to all slides in a trail.\n* The slider footer is an ordinary tiddler and can be opned and edited\n* The slider footer has the same title of trail with `-Footer` prefix and tagged with `slideFooter`\n* The footer can be used for date stamp, author and institution name or any other information you like.\n* The footer can be formatted for color, size, font and etc. It can accept all the standard markup.\n\n!! Navigate through slides\n# Set the desired trail as the active trail by opening it and clicking on `Set for presentation`\n# From the //List of slides// click on the first slide or any slide you like to start from\n# One the footer of newly opened slide, click on the next button to navigate to the next slide\n# You can click on the slide-list button to open a local window and see the list of all slides, then you can click on any slide you like and jump to that slide\n# The slide footer also has a //previous// button which lets to navigate to previous slide in the list\n\n\n!! Demo\nThere few trails for demonstration on\nhttps://kookma.github.io/slider/\n\n!! Installation\nSimply drag and drop the below ling into your wiki\n\n* $:/plugins/kookma/slider",
+        "requires-reload": "no"
+    },
+    {
+        "title": "$:/plugins/kookma/timelines",
+        "description": "Timelines",
+        "author": "Mohammad Rahmani",
+        "version": "2.0.16",
+        "core-version": ">=5.1.21",
+        "source": "https://github.com/kookma/TW-Timelines",
+        "list": "readme history license",
+        "dependents": "",
+        "plugin-type": "plugin",
+        "type": "application/json",
+        "readme": "!! How to use\n<<<\nTimelines is a collection of four macros for creating vertical and horizontal timeline and sequence. The content or description and data of events are stored in individual tiddlers. \n\nTimelines contain two timeline macros and two sequence macros. A sequence macro shows event contents in sequence not necessarily in chronological order. The order can be determined by tag or list field or other methods.\n\nThe date of events can be stored in a separate field or the `modified` field can be used.\n<<<\n\n!! Syntax\n<<<\n```\n<<timeline-horizontal filter limit:10 template:\"\" footer:\"footer\" \n                      class date:\"modified\" stateTiddler dateformat:\"YYYY\">>\n<<sequence-horizontal filter limit:10 template:\"\" footer:\"footer\" \n                      class date:\"modified\" stateTiddler dateformat:\"mmm DDth YYYY\">>\n\n<<timeline-vertical filter limit:10 template:\"\" footer:\"footer\" class date:\"modified\">>\n<<sequence-vertical filter limit:10 template:\"\" footer:\"footer\" class date:\"modified\">>\n```\n!! Content and parameters\n\n|Parameter |Type    |Description |h\n|filter    |required|a Tiddlywiki filter to select tiddlers for presentation |\n|limit  | optional|maximum number of tiddlers to be shown. Default value is 10|\n|template  |optional|a template to display the tiddler content|\n|footer |optional|the field name which stores an extra text to be displayed as footer|\n|class|optional|an extra class to customize how tiddler content is displayed|\n|date      |optional|the field name which stores a date in standard Tiddlywiki format. Default field is `modified`|\n|stateTiddler |optional|the name of a state tiddler to keep the state of events. Each call to macro needs a unique state tiddler|\n|dateformat |optional|only in `timeline-horizontal` and `timeline-vertical`, the format for displaying event date.|\n\nMore explanation with examples can be found at [[GitHub demo page|https://kookma.github.io/TW-Timelines/#Filter%20Parameter:%5B%5BFilter%20Parameter%5D%5D%20%5B%5BColor%20classes%5D%5D%20%5B%5BTemplate%20Parameter%5D%5D]].\n\n!!! The dateformat parameter\nThe dateformat lets to customize the event date displayed on the timeline.\n\n;timeline-horizontal\nFor `timeline-horizontal`  macro the default value is `YYYY`,  the other two forms of date are \n\n* `mmm DDth`, and \n* `0DD mmm YYYY`. \n\nOther format will not be displayed!\n\n;timeline-vertical\nFor the `timeline-vertical` macro the default value is `mmm DDth YYYY`,  the other two forms of date are \n\n* `mmm DDth` to show only the month and day and hide year\n* `YYYY` to show only year and hide the month\n\nOther format will not be displayed!\n\n!!! Important note\nWhen the `timeline-horizontal` is used, the timeline at first does not show the event date on the line. This is because the macro uses a state tiddler at first it does not exist. Simply click on pull previous or pull next buttons to create the state tiddler and show the events date. Note that the state tiddlers here are prefixed with `$:/state-tl/ilam` and so when TW closed and reopened the state tiddler will not removed.\n<<<\n\n! Install\n<<<\nSimply drag and drop $:/plugins/kookma/timelines into your wiki\n<<<\n\n\n! Project code and demo\n<<<\n* [[GitHub demo page|https://kookma.github.io/TW-Timelines/]]\n* [[GitHub code page|https://github.com/kookma/TW-Timelines]]\n<<<",
+        "requires-reload": "no"
+    },
+    {
+        "title": "$:/plugins/kookma/toc",
+        "description": "TOC",
+        "author": "Mohammad Rahmani",
+        "version": "1.1.0",
+        "core-version": ">=5.1.21",
+        "source": "https://github.com/kookma/TW-TOC",
+        "list": "readme history license",
+        "dependents": "",
+        "plugin-type": "plugin",
+        "type": "application/json",
+        "readme": "TOC plugin contains several macros, stylesheets and templates to create table of contents and navigator buttons. In contrast to Tiddlywiki core macros, the TOC plugin has many extra features including\n\n* non recursive two level toc\n* hierarchical navigation\n* exclude feature to exclude a branch or specific entries\n* track and highlight the TOC entry opened from table of contents or by navigation buttons\n\nLike core toc macro, TOC plugin supports also the recursive multi level table of contents, but here, it also support hierarchical navigation.",
+        "requires-reload": "no"
+    },
+    {
+        "title": "$:/plugins/kookma/todolist",
+        "description": "Todolist",
+        "author": "Mohammad Rahmani",
+        "version": "1.0.0",
+        "core-version": ">=5.1.18",
+        "source": "https://github.com/kookma/TW-Todolist",
+        "list": "readme history license",
+        "dependents": "",
+        "plugin-type": "plugin",
+        "type": "application/json",
+        "readme": "<style>\n.kk-doc svg{\nwidth: 1.2em;\nheight: 1.2em;\nvertical-align: middle;}\n</style>\n\n!! How to use\n<<<\nTodolist is a Pure tiny Tiddlywiki pluging for creating simple todolist. In any tiddler you wish to have the Todolist simply call `todolist-ui` macro. Details are given below.\n<<<\n\n!! Syntax\n<<<\n```\n<<todolist-ui caption:\"\" width:\"\" base:\"\">>\n```\n\n!! Content and parameters\n|Parameter |Type |Description |h\n|caption |optional|a short description appeares at top of todolist. The default value is `A plain todo list` |\n|width |optional|the width of UI, default value is `100%`. All CSS units are valid to be used e.g `60%`, `400px`, `15em`, etc. A min-width as `320px` was set, means UI width can not be smaller than this.|\n|base |optional|a name space used for creating different todolist. It is actually used in naming the data tiddlers internally used for todo lists. The default value is `base`. |\n<<<\n\n!! Add, edit items\n<<<\n!!! Add a new item\n* Simply click in the provided textbox and give the description of new item\n* Then click on the add button <span class=\"kk-doc\">{{$:/core/images/new-button}}</span>\n* Or simply press `Enter` key. This is a keyboard shotcut and can be customized via [[Keyboard Shortcut Tab|$:/core/ui/ControlPanel/KeyboardShortcuts]]. Find `add-to-item` entry and add your shortcut key of choice. It is assumed `Enter` is set.\n\n!!! Edit an item\n# Click on the edit button <span class=\"kk-doc\">{{$:/core/images/edit-button}}</span>, this will enable inplace editing of all items\n# Goto the desired item and edit it\n# Finally click on done button <span class=\"kk-doc\">{{$:/core/images/done-button}}</span>\n<<<\n\n!! Done, undone, and delete items\n<<<\n!!! Change an item status to done\n* To change an item status to //done//, go the desired row in todolist and click the checkbox at the left side.\n\n!!! Change an item status to undone\n* To change an item status to //undone//, go the desired row in todolist and remove the checkmark by clicking the checkbox.\n\n!!! Delete an item\n* To delete an item, go the desired row in todolist and click on <span class=\"kk-doc\">{{$:/core/images/delete-button}}</span> at the right side\n<<<\n\n!! Priority\n<<<\nTodolist supports task priorities. In RC 7 five colors are used e.g red, magenta, yellow, green, and blue for //very high//, //high//, //medium//, //low//, and //very low// priority. The circle with no colors means no priority!\n\n<$list filter=\"crimson magenta gold limegreen mediumblue none\" variable=\"color\"><$macrocall $name=disp-priority-badge color=<<color>> />\n</$list>\n\nWhen a new item is added to todo list, a grey circle appears right of the task row. No color means no priority. Clicking on this small icon, cycles through colors and you can choose the right color for priority this item has. These are similar to categories.\n<<<\n\n!! Categories\n<<<\nTodolist has several categories and support user categories. The below categories are available\n\n; Primary categories\n:<<high \"high priority\">>\n:<<normal \"normal priority\">>\n:<<low \"low priority\">>\n\n; Secondary categories\n:<<fixme \"FIXME item\">>\n:<<bug \"BUG item\">>\n:<<tip \"A tip item\">>\n:<<share \"Share item\">>\n:<<horn \"Announce, shout out item\">>\n\n\nThe colors used are pale colors for minimum contrast with normal text.\n\n!!! How to use categories\nA category is a simple macro. To use a category use the related macro. Each category macro has a syntax like below:\n\n```\n<<mac-name text:\"your-text-here\">>\n```\n\nFor example to create an item with high priority add new item with the below description (text in textbox)\n\n```\n<<high \"This is a high priority item\">>\n```\nThe current version of Todolist has eight category macros: `high`, `normal`, `low`, `fixme`, `bug`, `tip`, `horn`, and `share`.\n<<<\n\n!! Bulk operations\n<<<\n* Click on the <span class=\"kk-doc\">{{$:/core/images/options-button}}</span> a slider will show more options panel\n\n!!! Done/undone all items\n* You can done/undone all items at once by clicking on below buttons\n* <span class=\"kk-doc\">{{$:/core/images/save-button}}</span> to mark all items as done\n* <span class=\"kk-doc\">{{$:/core/images/refresh-button}}</span> to mark all items as undone\n\n!!! Archive complete items\n* You can also export done items to archive using <span class=\"kk-doc\">{{$:/plugins/kookma/todolist/images/archive.svg}}</span> button\n* You can navigate to archive and see them as a table\n\n!!! Display and manupulate completed items\n* By clicking on <span class=\"kk-doc\">{{$:/plugins/kookma/todolist/images/list-alt.svg}}</span> you can navigate and display archived items\n* In Archive item tiddler, you can remove all items at once or selectively remove those you like.\n\n!!! Display the timestamp\n* By clicking on <span class=\"kk-doc\">{{$:/core/images/timestamp-on}}</span> you can show/hide the date item created\n* Normally there is no need to display the data, but sometimes it is useful to display when the item was created\n\n<<<\n\n\n! Install\n<<<\nSimply drag and drop $:/plugins/kookma/todolist into your wiki\n<<<\n\n\n! Project code and demo\n<<<\n* [[GitHub demo page|https://github.com/kookma/TW-Todolist]]\n* [[GitHub code page|https://github.com/kookma/TW-Todolist]]\n<<<",
+        "requires-reload": "no"
+    },
+    {
+        "title": "$:/plugins/kookma/trashbin",
+        "description": "Trashbin",
+        "author": "Mohammad Rahmani",
+        "version": "1.0.0",
+        "core-version": ">=5.1.21",
+        "source": "https://github.com/kookma/TW-Trashbin",
+        "list": "readme history customization license",
+        "dependents": "",
+        "plugin-type": "plugin",
+        "type": "application/json",
+        "readme": "The concept behind trash plugin is to have a simple mechanism to move tiddlers to Trashbin and be able to restore them later if required.\n\n!! Terminology\n<<<\n; Trashbin\n: i. a collection of data tiddlers holds the deleted tiddlers\n: ii. the name of plugin and the mechanism to delete tiddlers temporarily and restore them or delete them permanently later\n\n; Delete tiddler\n: the action to //move a tiddler to Trashbin//. This action removes tiddler from wiki, but it does not eliminate it permanently.\n\n; Deleted tiddler\n: a tiddler is removed from wiki and stored in Trashbin. This tiddler can be restored.\n\n; Delete permanently\n:the action to eliminate and destroy a tiddler such that it cannot be restored anymore. This action is performed on deleted tiddlers in Trashbin.\n<<<\n\n!! How to\n<<<\n* Every tiddler has a new button as <<doc-svg $:/plugins/kookma/trashbin/images/trash-alt>> and is called ''Move to Trashbin''\n\n* On clicking on ''Move to Trashbin'' the tiddler is deleted from wiki and moved to Trashbin (//it is not removed permanently//)\n\n* A sidebar tab called ''Trashbin'' shows what is existed in the Trashbin\n\n* In sidebar tab ''Trashbin'' there is //header// and a //list// of deleted tiddlers\n** Deleted tiddlers in Trashbin list are displayed in alphanumerical order.\n** Each tiddler in Trashbin list has a ''delete permanently'' button <<doc-svg $:/plugins/kookma/trashbin/images/times.svg>>  and a ''restore'' button <<doc-svg $:/plugins/kookma/trashbin/images/recycle>> individually and let you to remove or restore a single tiddler.\n** In the header, the <<doc-svg $:/plugins/kookma/trashbin/images/trash-alt>> lets you to remove all tiddlers from Trashbin and ''delete them permanently''.\n** In the header, the <<doc-svg $:/plugins/kookma/trashbin/images/recycle>> lets you to ''restore all'' tiddlers from Trashbin.\n\n* On clicking on every tiddler in Trashbin list it is opened in story river.\n\n* Every deleted tiddler opened in story river has colored borders, a restore button as <<doc-svg $:/plugins/kookma/trashbin/images/recycle>> which is called ''Restore''\n\n* On clicking on ''restore'' button <<doc-svg $:/plugins/kookma/trashbin/images/recycle>> the tiddler is restored.\n\n* It is possible to edit the deleted tiddler, for example change `title` or other fields (indexes) and restore a modified tiddler different from the original deleted one.\n<<<\n\n!! Impotent note\n<<<\nIf a tiddler is existed in Trashbin and another with the same title in TW:\n\n* when moving it to trash, a unique title is created by adding //numeric suffix//, so they never overwrite other tiddlers.\n\n* when restoring from Trashbin, a notification is appeared and notifies user and does not restore such tiddler. User needs to decide and rename the existing tiddler or modify the deleted tiddler title index in Trashbin before restoring.\n\n* Note that Trashbon title for deleting tiddlers (actually data tiddlers) does not change the real title of tiddlers which is stored in an index called `title`.\n<<<\n\n!! Install\n<<<\nSimply drag and drop $:/plugins/kookma/trashbin into your wiki, or download from [[source page|https://github.com/kookma/TW-Trashbin]]\n<<<\n\n!! Mechanism\n<<<\nTrash plugin has two parts\n\n* Move to Trashbin\n* Restore from Trashbin\n\n; By moving a tiddler to Trashbin it means\n\n# A new data tiddler created\n# The title of data tiddler is the title of objective tiddler prefixed with `$:/trashbin/`\n# All the fields of objective tiddler is moved into a new data tiddler\n# The objective tiddler is deleted\n\n\n; By restoring a tiddler from Trashbin, it means\n# A new tiddler is created\n# Its title is taken from the `title` index in data tiddler\n# All other index/value are copied to newly created tiddler fields respectively. This means every index creates a field\n# The data tiddler is deleted\n\n;Duplicates\n# Deleted tiddlers will get numeric suffix if another tiddler with same title is existed in Trashbin.\n# Tiddlers existed in wiki will never overwritten if a tiddler with the same title is tried to be restored. A notification will notify user and operation will be cancelled.\n# Note that, the real title of deleted tiddler is what stored in `title` index of data tiddler NOT the title of data tiddler itself which stores the deleted tiddler in Trashbin.\n<<<\n\n!! Project code and demo\n<<<\n* [[GitHub demo page|https://github.com/kookma/TW-Trashbin]]\n* [[GitHub code page|https://github.com/kookma/TW-Trashbin]]\n<<<",
+        "requires-reload": "no"
+    },
+    {
+        "title": "$:/plugins/kookma/utility",
+        "description": "Utility",
+        "author": "Mohammad Rahmani",
+        "version": "1.7.3",
+        "core-version": ">=5.1.19",
+        "source": "https://github.com/kookma/TW-Utility",
+        "list": "readme history license",
+        "dependents": "",
+        "plugin-type": "plugin",
+        "type": "application/json",
+        "readme": "!! Utility plugin\n<<<\nThe utility plugin is a collection of macros, styles, templates provides tools for better and simpler documentation. \n<<<\n\n!! Demo and tutorial\n<<<\nFor detailed description of Utility plugin tools and demo have a look at\n\nhttps://kookma.github.io/TW-Utility/\n<<<\n\n!! Contents\n<<<\nUtility plugin includes the below tools\n\n* Macros\n** custom transclusion\n** doc-svg\n**  .lorem\n** show-macro\n** simple navigation\n** wikitext \n\n* Styles\n** Colorful sidebar tab\n** Tiddlywiki version badge\n\n* Template\n** Show fields in view mode\n** Display global macro content\n\n* Snippets\n** wikitext macro\n<<<\n\n!! Utility settings tab\n<<<\nThe Utility plugin has a settings tab under $:/ControlPanel, Settings tab, Utility tab. It allows to customize the behaviour of Utility plugin. A snapshot of Utility settings has been shown below.\n\n<<content $:/plugins/kookma/utility/ui/ControlPanel/Settings>>\n<<<\n\n!! Utility settings on sidebar\nUtility settings can be shown on the sidebar under tab `More`. To enable this feature simply open $:/ControlPanel, Settings tab, Utility tab and click the checkbox with `Show setting in more sidebar`.",
+        "requires-reload": "no"
+    }
+];
+
+/*\
+title: $:/plugins/tiddlywiki/pluginlibrary/libraryserver.js
+type: application/javascript
+module-type: library
+
+A simple HTTP-over-window.postMessage implementation of a standard TiddlyWeb-compatible server. It uses real HTTP to load the individual tiddler JSON files.
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+"use strict";
+
+// Listen for window messages
+window.addEventListener("message",function listener(event){
+	console.log("plugin library: Received message from",event.origin);
+	console.log("plugin library: Message content",event.data);
+	switch(event.data.verb) {
+		case "GET":
+			if(event.data.url === "recipes/library/tiddlers.json") {
+				// Route for recipes/library/tiddlers.json
+				event.source.postMessage({
+					verb: "GET-RESPONSE",
+					status: "200",
+					cookies: event.data.cookies,
+					url: event.data.url,
+					type: "application/json",
+					body: JSON.stringify(assetList,null,4)
+				},"*");
+			} else if(event.data.url.indexOf("recipes/library/tiddlers/") === 0) {
+				var url = "recipes/library/tiddlers/" + encodeURIComponent(removePrefix(event.data.url,"recipes/library/tiddlers/"));
+				// Route for recipes/library/tiddlers/<uri-encoded-tiddler-title>.json
+				httpGet(url,function(err,responseText) {
+					if(err) {
+						event.source.postMessage({
+							verb: "GET-RESPONSE",
+							status: "404",
+							cookies: event.data.cookies,
+							url: event.data.url,
+							type: "text/plain",
+							body: "Not found"
+						},"*");
+					} else {
+						event.source.postMessage({
+							verb: "GET-RESPONSE",
+							status: "200",
+							cookies: event.data.cookies,
+							url: event.data.url,
+							type: "application/json",
+							body: responseText
+						},"*");
+					}
+				});
+			} else {
+				event.source.postMessage({
+					verb: "GET-RESPONSE",
+					status: "404",
+					cookies: event.data.cookies,
+					url: event.data.url,
+					type: "text/plain",
+					body: "Not found"
+				},"*");
+			}
+			break;
+	}
+},false);
+
+// Helper to remove string prefixes
+function removePrefix(string,prefix) {
+	if(string.indexOf(prefix) === 0) {
+		return string.substr(prefix.length);
+	} else {
+		return string;
+	}
+}
+
+// Helper for HTTP GET
+function httpGet(url,callback) {
+	var http = new XMLHttpRequest();
+	http.open("GET",url,true);
+	http.onreadystatechange = function() {
+		if(http.readyState == 4 && http.status == 200) {
+			callback(null,http.responseText);
+		}
+	};
+	http.send();
+}
+
+})();
+
+</script>
+</head>
+<body><h1>HelloThere</h1><p>This is the TiddlyWiki plugin library. It is not intended to be opened directly in the browser.</p><p>See <a href="https://tiddlywiki.com/" target="_blank">https://tiddlywiki.com/</a> for details of how to install plugins.</p></body>
+</html>
