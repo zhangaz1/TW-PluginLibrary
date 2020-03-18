@@ -10397,21 +10397,6 @@ To use in other wikis, drag and drop this link to those wikis: [[Kookma Plugin L
             &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
             &quot;text&quot;: &quot;\\define configTid() $:/config/utility/author\n\\define add-remove-tag(msg:\&quot;\&quot;, tag:\&quot;\&quot;)\n&lt;$fieldmangler&gt;&lt;!--msg: tm-add-tag tm-remove-tag--&gt;\n&lt;$action-sendmessage $message=\&quot;$msg$\&quot; $param=\&quot;$tag$\&quot;/&gt;\n&lt;/$fieldmangler&gt;\n\\end\n\n\\define hide-elements()\n&lt;!-- hide side bar items --&gt;\n&lt;$list filter=\&quot;[all[shadows+tiddlers]tag[$:/tags/SideBar]!tag[excluded]]\&quot;&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;configTid&gt;&gt; $index=&lt;&lt;currentTiddler&gt;&gt; $value=\&quot;$:/tags/SideBar\&quot;/&gt;\n&lt;$macrocall $name=\&quot;add-remove-tag\&quot; msg=\&quot;tm-remove-tag\&quot; tag=\&quot;$:/tags/SideBar\&quot;/&gt;\n&lt;/$list&gt;\n&lt;!-- hide view toolbars --&gt;\n&lt;$list filter=\&quot;[all[shadows+tiddlers]prefix[$:/config/ViewToolbarButtons/Visibility]!tag[excluded]]\&quot;&gt;\n&lt;$reveal type=match stateTitle=&lt;&lt;currentTiddler&gt;&gt; stateField=\&quot;text\&quot; text=\&quot;show\&quot;&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;configTid&gt;&gt; $index=&lt;&lt;currentTiddler&gt;&gt; $value=\&quot;show\&quot;/&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;currentTiddler&gt;&gt; $field=\&quot;text\&quot; $value=\&quot;hide\&quot;/&gt;\n&lt;/$reveal&gt;\n&lt;/$list&gt;\n&lt;!-- hide page controls --&gt;\n&lt;$list filter=\&quot;[all[shadows+tiddlers]prefix[$:/config/PageControlButtons/Visibility]!tag[excluded]]\&quot;&gt;\n&lt;$reveal type=match stateTitle=&lt;&lt;currentTiddler&gt;&gt; stateField=\&quot;text\&quot; text=\&quot;show\&quot;&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;configTid&gt;&gt; $index=&lt;&lt;currentTiddler&gt;&gt; $value=\&quot;show\&quot;/&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;currentTiddler&gt;&gt; $field=\&quot;text\&quot; $value=\&quot;hide\&quot;/&gt;\n&lt;/$reveal&gt;\n&lt;/$list&gt;\n&lt;!-- disable dropzone --&gt;\n&lt;$action-setfield $tiddler=\&quot;$:/config/PageDropzone/Enable\&quot; $field=\&quot;text\&quot; $value=\&quot;no\&quot;/&gt;\n\\end\n\n\\define unhide-elements()\n&lt;!-- Revert view toolbar and page controls --&gt;\n&lt;$list filter=\&quot;[&lt;configTid&gt;indexes[]]\&quot;&gt;\n&lt;$reveal type=match stateTitle=&lt;&lt;configTid&gt;&gt; stateIndex=&lt;&lt;currentTiddler&gt;&gt; text=\&quot;show\&quot;&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;currentTiddler&gt;&gt; $field=\&quot;text\&quot; $value=\&quot;show\&quot;/&gt;\n&lt;/$reveal&gt;\n&lt;/$list&gt;\n&lt;!-- Revert sidebar tabs --&gt;\n&lt;$list filter=\&quot;[&lt;configTid&gt;indexes[]]\&quot;&gt;\n&lt;$reveal type=match stateTitle=&lt;&lt;configTid&gt;&gt; stateIndex=&lt;&lt;currentTiddler&gt;&gt; text=\&quot;$:/tags/SideBar\&quot;&gt;\n&lt;$macrocall $name=\&quot;add-remove-tag\&quot; msg=\&quot;tm-add-tag\&quot; tag=\&quot;$:/tags/SideBar\&quot;/&gt;\n&lt;/$reveal&gt;\n&lt;/$list&gt;\n&lt;!-- delete the configTid --&gt;\n&lt;$action-deletetiddler $tiddler=&lt;&lt;configTid&gt;&gt;/&gt;\n&lt;!-- enable dropzone --&gt;\n&lt;$action-deletetiddler $tiddler=\&quot;$:/config/PageDropzone/Enable\&quot;/&gt;\n\\end\n\n&lt;$reveal type=nomatch state=&lt;&lt;configTid&gt;&gt; text=\&quot;\&quot;&gt;\n&lt;$button actions=&lt;&lt;unhide-elements&gt;&gt; tooltip=\&quot;Unhide UI elements\&quot;&gt;Author mode&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;$reveal type=match state=&lt;&lt;configTid&gt;&gt; text=\&quot;\&quot; default=\&quot;\&quot;&gt;\n&lt;$button actions=&lt;&lt;hide-elements&gt;&gt; tooltip=\&quot;Hide UI elements\&quot;&gt;Reader mode&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;small&gt;&lt;ul&gt;\n&lt;li&gt;Author mode: all UI elements are visible&lt;/li&gt;\n&lt;li&gt;Redaer mode: all UI elements are hidden except those excluded&lt;/li&gt;\n&lt;/ul&gt;&lt;/small&gt;\n&lt;$reveal type=match state=&lt;&lt;configTid&gt;&gt; text=\&quot;\&quot; default=\&quot;\&quot;&gt;\n&lt;details&gt;\n&lt;summary&gt;Select items to be excluded&lt;/summary&gt;\n&lt;div style=\&quot;padding-left:30px\&quot;&gt;{{$:/plugins/kookma/utility/author/exclude-items}}\n&lt;/div&gt;\n&lt;/details&gt;\n&lt;/$reveal&gt;&quot;
         },
-        &quot;$:/config/shortcuts/author-tools&quot;: {
-            &quot;title&quot;: &quot;$:/config/shortcuts/author-tools&quot;,
-            &quot;created&quot;: &quot;20191121050813703&quot;,
-            &quot;modified&quot;: &quot;20200316123531677&quot;,
-            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
-            &quot;text&quot;: &quot;ctrl-alt-A&quot;
-        },
-        &quot;$:/language/Buttons/Utility/Caption&quot;: {
-            &quot;title&quot;: &quot;$:/language/Buttons/Utility/Caption&quot;,
-            &quot;created&quot;: &quot;20190930171340202&quot;,
-            &quot;modified&quot;: &quot;20191111154125886&quot;,
-            &quot;tags&quot;: &quot;&quot;,
-            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
-            &quot;text&quot;: &quot;show fields&quot;
-        },
         &quot;$:/plugins/kookma/utility/config/reveal-tags&quot;: {
             &quot;title&quot;: &quot;$:/plugins/kookma/utility/config/reveal-tags&quot;,
             &quot;created&quot;: &quot;20200123085623608&quot;,
@@ -10420,13 +10405,34 @@ To use in other wikis, drag and drop this link to those wikis: [[Kookma Plugin L
             &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
             &quot;text&quot;: &quot;&quot;
         },
-        &quot;$:/language/Buttons/Utility/Hint&quot;: {
-            &quot;title&quot;: &quot;$:/language/Buttons/Utility/Hint&quot;,
-            &quot;created&quot;: &quot;20190930171301401&quot;,
-            &quot;modified&quot;: &quot;20191111154125882&quot;,
+        &quot;$:/config/ShortcutInfo/author-tools&quot;: {
+            &quot;title&quot;: &quot;$:/config/ShortcutInfo/author-tools&quot;,
+            &quot;created&quot;: &quot;20190912083358612&quot;,
+            &quot;modified&quot;: &quot;20200316123519558&quot;,
             &quot;tags&quot;: &quot;&quot;,
             &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
-            &quot;text&quot;: &quot;Show fields&quot;
+            &quot;text&quot;: &quot;Show Author tools dialog&quot;
+        },
+        &quot;$:/config/ShortcutInfo/switch-author&quot;: {
+            &quot;title&quot;: &quot;$:/config/ShortcutInfo/switch-author&quot;,
+            &quot;created&quot;: &quot;20200315203528401&quot;,
+            &quot;modified&quot;: &quot;20200316123455880&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;text&quot;: &quot;Toggle the author-reader mode&quot;
+        },
+        &quot;$:/config/shortcuts/author-tools&quot;: {
+            &quot;title&quot;: &quot;$:/config/shortcuts/author-tools&quot;,
+            &quot;created&quot;: &quot;20191121050813703&quot;,
+            &quot;modified&quot;: &quot;20200316123531677&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;text&quot;: &quot;ctrl-alt-A&quot;
+        },
+        &quot;$:/config/shortcuts/switch-author&quot;: {
+            &quot;title&quot;: &quot;$:/config/shortcuts/switch-author&quot;,
+            &quot;created&quot;: &quot;20200315203409995&quot;,
+            &quot;modified&quot;: &quot;20200316123545221&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;text&quot;: &quot;ctrl+alt+L&quot;
         },
         &quot;$:/plugins/kookma/utility/history&quot;: {
             &quot;title&quot;: &quot;$:/plugins/kookma/utility/history&quot;,
@@ -10443,6 +10449,22 @@ To use in other wikis, drag and drop this link to those wikis: [[Kookma Plugin L
             &quot;tags&quot;: &quot;&quot;,
             &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
             &quot;text&quot;: &quot;&lt;svg xmlns=\&quot;http://www.w3.org/2000/svg\&quot; class=\&quot;tc-image-button tc-image-view-fields\&quot; width=\&quot;22pt\&quot; height=\&quot;22pt\&quot; viewBox=\&quot;0 0 24 24\&quot;&gt;&lt;path d=\&quot;M0 0h24v24H0z\&quot; fill=\&quot;none\&quot;/&gt;&lt;path d=\&quot;M7 11H1v2h6v-2zm2.17-3.24L7.05 5.64 5.64 7.05l2.12 2.12 1.41-1.41zM13 1h-2v6h2V1zm5.36 6.05l-1.41-1.41-2.12 2.12 1.41 1.41 2.12-2.12zM17 11v2h6v-2h-6zm-5-2c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm2.83 7.24l2.12 2.12 1.41-1.41-2.12-2.12-1.41 1.41zm-9.19.71l1.41 1.41 2.12-2.12-1.41-1.41-2.12 2.12zM11 23h2v-6h-2v6z\&quot;/&gt;&lt;/svg&gt;&quot;
+        },
+        &quot;$:/language/Buttons/Utility/Caption&quot;: {
+            &quot;title&quot;: &quot;$:/language/Buttons/Utility/Caption&quot;,
+            &quot;created&quot;: &quot;20190930171340202&quot;,
+            &quot;modified&quot;: &quot;20191111154125886&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;text&quot;: &quot;show fields&quot;
+        },
+        &quot;$:/language/Buttons/Utility/Hint&quot;: {
+            &quot;title&quot;: &quot;$:/language/Buttons/Utility/Hint&quot;,
+            &quot;created&quot;: &quot;20190930171301401&quot;,
+            &quot;modified&quot;: &quot;20191111154125882&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;text&quot;: &quot;Show fields&quot;
         },
         &quot;$:/plugins/kookma/utility/license&quot;: {
             &quot;title&quot;: &quot;$:/plugins/kookma/utility/license&quot;,
@@ -10581,13 +10603,6 @@ To use in other wikis, drag and drop this link to those wikis: [[Kookma Plugin L
             &quot;tags&quot;: &quot;$:/tags/Stylesheet kookma&quot;,
             &quot;type&quot;: &quot;text/css&quot;,
             &quot;text&quot;: &quot;.doc-example { margin: 1em 0; padding: 0.8em 0; } .doc-example:hover { background-color: #f7f7f9; } .doc-example ul { margin-bottom: 0; padding-bottom: 0; margin-top: 0.2em; } .doc-example pre:first-child { margin-top: 0; } .doc-example-result { border-left: 5px solid #bbb; border-right: 5px solid #bbb; margin-left: 0; margin-right: 0; padding: 0 10px; } .doc-example-result ul { margin-left: 0; padding-left: 10px; } .doc-example-result ol { margin-left: 0; padding-left: 20px; }&quot;
-        },
-        &quot;$:/config/shortcuts/switch-author&quot;: {
-            &quot;title&quot;: &quot;$:/config/shortcuts/switch-author&quot;,
-            &quot;created&quot;: &quot;20200315203409995&quot;,
-            &quot;modified&quot;: &quot;20200316123545221&quot;,
-            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
-            &quot;text&quot;: &quot;ctrl+alt+L&quot;
         },
         &quot;$:/plugins/kookma/utility/ui/ControlPanel/Settings&quot;: {
             &quot;title&quot;: &quot;$:/plugins/kookma/utility/ui/ControlPanel/Settings&quot;,
