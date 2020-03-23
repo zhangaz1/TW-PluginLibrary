@@ -59,14 +59,14 @@
         "title": "$:/plugins/kookma/shiraz",
         "description": "Shiraz",
         "author": "Mohammad Rahmani",
-        "version": "2.0.16",
+        "version": "2.1.0",
         "core-version": ">=5.1.21",
         "source": "https://github.com/kookma/TW-Shiraz",
         "list": "readme history license",
         "dependents": "",
         "plugin-type": "plugin",
         "type": "application/json",
-        "readme": "Shiraz is a small framework inclusing stylesheets and macros to create stylish contents in Tiddlywiki. It has modified CSS classes from Bootstrap 4.1.3. Shiraz has customized elements like alerts, cards, panels, images, tables, badges, texts, ...\n\nFor tutorial and download see\n\nhttps://kookma.github.io/Shiraz/\n",
+        "readme": ";; Shiraz\ndescribe what is the plugin in one paragraph\n\n;Code and demo\nFor learning plugin features, syntax, tutorial and examples see the plugin demo and code pages\n\n* Demo: https://kookma.github.io/TW-???/\n* Code: https://github.com/kookma/TW-???\n",
         "requires-reload": "no"
     },
     {
